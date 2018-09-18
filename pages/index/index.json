@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "candidate-card": "/components/candidateCard/candidateCard",
+        "search-box": "/components/searchBox/searchBox"
+    }
+}

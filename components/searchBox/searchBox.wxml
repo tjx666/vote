@@ -1,0 +1,18 @@
+<view class="container">
+    <input
+        class="search-input"
+        type="text"
+        placeholder="输入候选人名字"
+        placeholder-style=""
+        placeholder-class=""
+        maxlength="10"
+        auto-focus="{{true}}"
+        focus="{{true}}"
+        bindchange=""
+        bindinput=""
+        bindfocus=""
+        bindblur=""
+    >
+    </input>
+    <button class="search-button">跳转</button>
+</view>

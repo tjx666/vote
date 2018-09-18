@@ -1,0 +1,17 @@
+.container {
+    width: 700rpx;
+    height: 80rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-input {
+    flex: 1;
+    border: 2px solid #999999;
+}
+
+.search-button {
+    flex-basis: 160rpx;
+    margin-left: 10rpx;
+}
