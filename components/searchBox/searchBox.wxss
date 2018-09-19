@@ -1,22 +1,44 @@
+@font-face {
+    font-family: 'iconfont';
+    src: url(data:font/truetype;charset=utf-8;base64,AAEAAAANAIAAAwBQRkZUTYU09wMAAAZsAAAAHEdERUYAKQAKAAAGTAAAAB5PUy8yPG5H8gAAAVgAAABWY21hcAAP6asAAAHAAAABQmdhc3D//wADAAAGRAAAAAhnbHlmRhARyQAAAxAAAAB4aGVhZBKwE/cAAADcAAAANmhoZWEHswOFAAABFAAAACRobXR4DAAAKwAAAbAAAAAQbG9jYQA8AAAAAAMEAAAACm1heHABEAAuAAABOAAAACBuYW1lKeYRVQAAA4gAAAKIcG9zdM50eNkAAAYQAAAAMQABAAAAAQAAYL+2z18PPPUACwQAAAAAANfIZ/0AAAAA18hn/QAr/6sD1QNVAAAACAACAAAAAAAAAAEAAAOA/4AAXAQAAAAAAAPVAAEAAAAAAAAAAAAAAAAAAAAEAAEAAAAEACIAAgAAAAAAAgAAAAoACgAAAP8AAAAAAAAAAQQAAZAABQAAAokCzAAAAI8CiQLMAAAB6wAyAQgAAAIABQMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUGZFZABA5gDmAAOA/4AAXAOAAIAAAAABAAAAAAAABAAAAAAAAAAEAAAABAAAKwAAAAMAAAADAAAAHAABAAAAAAA8AAMAAQAAABwABAAgAAAABAAEAAEAAOYA//8AAOYA//8aAwABAAAAAAAAAQYAAAEAAAAAAAAAAQIAAAACAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwAAAACACv/qwPVA1UAFQAhAAAFJz4BNS4BJw4BBx4BFz4BNxcWMjY0JS4BJz4BNx4BFw4BA8nyKSsE2aOk2AQE2KREejHzDSEa/dZ/qQMDqX9/qAMDqA3zM3tBpNgEBNiko9kEASwn8gwaIcUDqH9/qQMDqX9/qAAAAAAAABIA3gABAAAAAAAAABUALAABAAAAAAABAAgAVAABAAAAAAACAAcAbQABAAAAAAADAAgAhwABAAAAAAAEAAgAogABAAAAAAAFAAsAwwABAAAAAAAGAAgA4QABAAAAAAAKACsBQgABAAAAAAALABMBlgADAAEECQAAACoAAAADAAEECQABABAAQgADAAEECQACAA4AXQADAAEECQADABAAdQADAAEECQAEABAAkAADAAEECQAFABYAqwADAAEECQAGABAAzwADAAEECQAKAFYA6gADAAEECQALACYBbgAKAEMAcgBlAGEAdABlAGQAIABiAHkAIABpAGMAbwBuAGYAbwBuAHQACgAACkNyZWF0ZWQgYnkgaWNvbmZvbnQKAABpAGMAbwBuAGYAbwBuAHQAAGljb25mb250AABSAGUAZwB1AGwAYQByAABSZWd1bGFyAABpAGMAbwBuAGYAbwBuAHQAAGljb25mb250AABpAGMAbwBuAGYAbwBuAHQAAGljb25mb250AABWAGUAcgBzAGkAbwBuACAAMQAuADAAAFZlcnNpb24gMS4wAABpAGMAbwBuAGYAbwBuAHQAAGljb25mb250AABHAGUAbgBlAHIAYQB0AGUAZAAgAGIAeQAgAHMAdgBnADIAdAB0AGYAIABmAHIAbwBtACAARgBvAG4AdABlAGwAbABvACAAcAByAG8AagBlAGMAdAAuAABHZW5lcmF0ZWQgYnkgc3ZnMnR0ZiBmcm9tIEZvbnRlbGxvIHByb2plY3QuAABoAHQAdABwADoALwAvAGYAbwBuAHQAZQBsAGwAbwAuAGMAbwBtAABodHRwOi8vZm9udGVsbG8uY29tAAACAAAAAAAAAAoAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAQAAAABAAIBAgZzZWFyY2gAAAAAAAAB//8AAgABAAAADAAAABYAAAACAAEAAwADAAEABAAAAAIAAAAAAAAAAQAAAADVpCcIAAAAANfIZ/0AAAAA18hn/Q==) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.iconfont {
+    font-family:"iconfont" !important;
+    font-size:16px;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+.icon-search:before { content: "\e600"; }
+
 .container {
     width: 700rpx;
-    height: 80rpx;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    position: relative;
 }
 
 
-/* input */
-.search-input {
-    flex: 1;
+.search-input-container {
+    height: 60rpx;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 5rpx;
     border: 2px solid #999999;
     border-radius: 3px;
     transition: border 0.5 ease-in-out;
 }
 
+.search-input {
+    height: 50rpx;
+    margin-left: 5rpx;
+}
+
 .focused {
-    border: 2px solid rgb(47, 124, 172);
+    border: 2px solid rgb(212, 155, 69);
 }
 
 .placeholder {
@@ -26,21 +48,25 @@
 }
 
 
-/* button */
-.search-button {
-    height: 60rpx;
-    flex-basis: 100rpx;
+/* result panel */
+.search-result-panel {
+    position: absolute;
+    z-index: 100;
+    width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 10rpx;
-    border: 1px solid gray;
-    border-radius: 15rpx;  
-    background-color: #eeeeee;
-    font-size: .9rem;
+    flex-direction: column;
+    background-color: rgb(230, 228, 146);
+    border-radius: 5rpx;
 }
 
-.search-button-hover {
-    transition: background-color 0.5 ease-in-out;
-    background-color: lightsalmon;
+.search-result {
+    height: 60rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 10rpx;
+    border-top: 1px solid gray;
+    line-height: 50rpx;
+    color: #999999;
 }
+

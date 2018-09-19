@@ -5,8 +5,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 20rpx;
-    padding-bottom: 20rpx;
 }
 
 .photo {
@@ -17,19 +15,26 @@
 }
 
 
-.info {
-    width: 500rpx;
+.info-container {
+    width: 460rpx;
     height: 300rpx;
-    padding-top: 20rpx;
-    padding-left: 20rpx;
-    /* background-color: lightblue;  */
-    background-color: rgb(235, 235, 195); 
-    border-radius: 18rpx;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(212, 212, 187); 
+    border-radius: 28rpx;
 }
 
-.info text {
+.info {
+    margin-top: 30rpx;
+    margin-left: 50rpx;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-item {
     font-size: .8rem;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    margin-bottom: 10rpx;
 }
 
 .vote {
@@ -40,8 +45,8 @@
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    background-color: lightgreen;
-    margin-top: 40rpx;
+    background-color: rgb(231, 241, 184);
+    margin-top: 20rpx;
 }
 
 .vote-hover {

@@ -11,5 +11,5 @@
     font-size: .8rem;
     letter-spacing: 2px;
     border: 1px solid rgb(214, 45, 45);    
-    background-color: lightsalmon;
+    background-color: #ffa07a;
 }

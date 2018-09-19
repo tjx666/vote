@@ -1,16 +1,30 @@
 <view class="container">
-    <input
-        class="{{'search-input ' + (focus ? 'focused' : '')}}"
-        type="text"
-        placeholder="输入候选人名字"
-        placeholder-class="placeholder"
-        maxlength="10"
-        focus="{{focus}}"
-        bindchange=""
-        bindinput=""
-        catchfocus="handleInputFocus"
-        bindblur="handleInputBlur"
-    >
-    </input>
-    <view class="search-button" hover-class="search-button-hover">跳转</view>
+    <view class="{{'search-input-container '  + (focus ? 'focused' : '')}}">
+        <text class="iconfont icon-search"></text>
+        <input
+            class="search-input"
+            type="text"
+            placeholder="输入候选人名字"
+            placeholder-class="placeholder"
+            maxlength="10"
+            focus="{{focus}}"
+            bindchange=""
+            bindinput=""
+            catchfocus="handleInputFocus"
+            bindblur="handleInputBlur"
+        >
+        </input>
+    </view>
+    <view class="search-result-panel" style="display: {{ focus ? 'flex' : 'none'}};">
+        <view
+            class="search-result"
+            wx:for="{{searchResultList}}"
+            wx:key="id"
+            data-select-candidate-id="{{item.id}}"
+            catchtap="handleSelect"
+        >
+            <text>{{item.name}}</text>
+            <text>{{item.acquiredCount}}票</text>
+        </view>
+    </view>
 </view>

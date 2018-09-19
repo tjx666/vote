@@ -6,16 +6,19 @@
         interval="20"
     >
     </marqueen>
-    <search-box></search-box>
+    <search-box
+        catchselectcandidate="handleSelectCandidate"
+    >
+    </search-box>
     <swiper
         class="candidate-list"
         indicator-dots="{{false}}"
         autoplay="{{false}}"
         vertical="{{false}}"
-        current="0"
+        current-item-id="{{currentCandidateId}}"
         duration="1000"
         >
-        <swiper-item item-id="index" wx:for="{{candidateList}}" wx:key="id">
+        <swiper-item item-id="{{item.id}}" wx:for="{{candidateList}}" wx:key="id">
             <candidate-card
                 candidate-name="{{item.name}}"
                 candidate-photo="{{item.photoSrc}}"
