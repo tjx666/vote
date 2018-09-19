@@ -1,6 +1,8 @@
 {
     "usingComponents": {
         "candidate-card": "/components/candidateCard/candidateCard",
-        "search-box": "/components/searchBox/searchBox"
+        "search-box": "/components/searchBox/searchBox",
+        "marqueen": "/components/marqueen/marqueen",
+        "ec-canvas": "/components/ec-canvas/ec-canvas"
     }
 }

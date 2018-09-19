@@ -1,0 +1,3 @@
+<view class="container">
+    <text class="notification" style="display: block; position: absolute; left: {{offsetLeft}}px" space="nbsp">{{notification}}</text>
+</view>

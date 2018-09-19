@@ -1,0 +1,15 @@
+.container {
+    width: 750rpx;
+    height: 60rpx;
+    position: relative;
+    line-height: 60rpx;
+    margin-bottom: 20rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: black;
+    font-size: .8rem;
+    letter-spacing: 2px;
+    border: 1px solid rgb(214, 45, 45);    
+    background-color: lightsalmon;
+}

@@ -10,22 +10,26 @@
 }
 
 .photo {
-    width: 250rpx;
-    height: 250rpx;
+    width: 300rpx;
+    height: 300rpx;
     border-radius: 50%;
-    margin-bottom: 30rpx;
+    margin-bottom: 50rpx;
 }
 
-.name {
-
-}
 
 .info {
     width: 500rpx;
     height: 300rpx;
     padding-top: 20rpx;
     padding-left: 20rpx;
-    background-color: lightblue; 
+    /* background-color: lightblue;  */
+    background-color: rgb(235, 235, 195); 
+    border-radius: 18rpx;
+}
+
+.info text {
+    font-size: .8rem;
+    letter-spacing: 1px;
 }
 
 .vote {
@@ -37,5 +41,14 @@
     align-items: center;
     border-radius: 50%;
     background-color: lightgreen;
-    margin-top: 20rpx;
+    margin-top: 40rpx;
+}
+
+.vote-hover {
+    transition: background-color 0.5 ease-in-out;
+    background-color: rgb(212, 155, 49);
+}
+
+.voted {
+    background-color: orange;
 }

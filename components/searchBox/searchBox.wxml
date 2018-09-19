@@ -1,18 +1,16 @@
 <view class="container">
     <input
-        class="search-input"
+        class="{{'search-input ' + (focus ? 'focused' : '')}}"
         type="text"
         placeholder="输入候选人名字"
-        placeholder-style=""
-        placeholder-class=""
+        placeholder-class="placeholder"
         maxlength="10"
-        auto-focus="{{true}}"
-        focus="{{true}}"
+        focus="{{focus}}"
         bindchange=""
         bindinput=""
-        bindfocus=""
-        bindblur=""
+        catchfocus="handleInputFocus"
+        bindblur="handleInputBlur"
     >
     </input>
-    <button class="search-button">跳转</button>
+    <view class="search-button" hover-class="search-button-hover">跳转</view>
 </view>

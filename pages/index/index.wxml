@@ -1,5 +1,11 @@
 <!--index.wxml-->
 <view class="container">
+    <marqueen
+        initNotification="{{notification}}"
+        space="1"
+        interval="20"
+    >
+    </marqueen>
     <search-box></search-box>
     <swiper
         class="candidate-list"
@@ -17,6 +23,9 @@
             >
             </candidate-card>
         </swiper-item>
-        
     </swiper>
+    <!-- <view class="chart-container">
+        
+    </view> -->
+    <ec-canvas id="vote-statistic" canvas-id="vote-statistic-bar" ec="{{ ec }}"></ec-canvas>
 </view>

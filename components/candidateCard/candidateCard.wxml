@@ -2,7 +2,7 @@
     <image class="photo" src="{{ candidatePhoto }}" mode="aspectFit"></image>
     <view class="info">
         <text class="name">{{ '姓名: ' + candidateName }}</text>
-        <text class="name">{{ '\n已获投票数: ' + acquiredCount }}</text>
-        <view class="vote"><text>{{ '给他\n一票' }}</text></view>
+        <text class="acquiredCount">{{ '\n已获投票数: ' + acquiredCount }}</text>
+        <view class="vote {{status ? 'voted' : ''}}" hover-class="vote-hover" catchtap="handleVote"><text>{{ status ? '投票\n成功' : '给他\n一票' }}</text></view>
     </view>
 </view>
