@@ -13,9 +13,9 @@ function initChart(canvas, width, height) {
     });
     canvas.setChart(chart);
 
-    var option =  {
+    var option = {
         color: ['#ef902b', '#ffa07a'],
-        backgroundColor: 'rgb(250, 250, 210)', 
+        backgroundColor: 'rgb(250, 250, 210)',
         title: {
             text: '候选人获票排行榜',
             subtext: '实时刷新'
@@ -35,15 +35,13 @@ function initChart(canvas, width, height) {
         },
         yAxis: {
             type: 'category',
-            data: ['王二', '李四', '张三',]
+            data: ['王二', '李四', '张三', ]
         },
-        series: [
-            {
-                name: '票数',
-                type: 'bar',
-                data: [120, 160, 180]
-            }
-        ]
+        series: [{
+            name: '票数',
+            type: 'bar',
+            data: [120, 160, 180]
+        }]
     };
 
     chart.setOption(option);
@@ -58,7 +56,7 @@ Page({
                 name: '张三',
                 photoSrc: '../../assert/image/avatar.jpg',
                 acquiredCount: 180,
-                supportProportion:39.1,
+                supportProportion: 39.1,
             },
             {
                 id: 2,
@@ -80,7 +78,7 @@ Page({
             onInit: initChart
         }
     },
-    handleSelectCandidate (event) {
+    handleSelectCandidate(event) {
         const selectCandidate = this.data.candidateList.find(candidate => candidate.id === event.detail.candidateId);
         if (selectCandidate) {
             this.setData({
@@ -88,5 +86,7 @@ Page({
             });
         }
     },
-    onLoad: function () {},
+    onLoad: function () {
+
+    },
 })
