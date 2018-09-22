@@ -16,12 +16,12 @@
 
 
 .info-container {
-    width: 460rpx;
-    height: 300rpx;
+    width: 450rpx;
+    height: 320rpx;
     display: flex;
     flex-direction: column;
-    background-color: rgb(212, 212, 187); 
-    border-radius: 28rpx;
+    background-color: rgb(235, 235, 183); 
+    border-radius: 20rpx;
 }
 
 .info {
@@ -38,15 +38,17 @@
 }
 
 .vote {
-    width: 120rpx;
-    height: 120rpx;
+    width: 100rpx;
+    height: 100rpx;
     margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    background-color: rgb(231, 241, 184);
+    background-color: rgb(250, 250, 210);
     margin-top: 20rpx;
+    font-size: .8rem;
+    letter-spacing: .1rem;
 }
 
 .vote-hover {

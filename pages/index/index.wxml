@@ -23,6 +23,7 @@
                 candidate-name="{{item.name}}"
                 candidate-photo="{{item.photoSrc}}"
                 acquired-count="{{item.acquiredCount}}"
+                support-proportion="{{item.supportProportion}}"
             >
             </candidate-card>
         </swiper-item>

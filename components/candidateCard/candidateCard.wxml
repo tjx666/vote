@@ -4,6 +4,7 @@
         <view class="info">
             <view class="info-item">{{ '姓名: ' + candidateName }}</view>
             <view class="info-item">{{ '\n已获投票数: ' + acquiredCount }}</view>
+            <view class="info-item">{{ '\n支持率: ' + supportProportion + '%' }}</view>
         </view>
         <view class="vote {{status ? 'voted' : ''}}" hover-class="vote-hover" catchtap="handleVote">
             <text>{{ status ? '投票\n成功' : '给他\n一票' }}</text>

@@ -23,8 +23,8 @@
             data-select-candidate-id="{{item.id}}"
             catchtap="handleSelect"
         >
-            <text>{{item.name}}</text>
-            <text>{{item.acquiredCount}}票</text>
+            <text class="result-name">{{item.name}}</text>
+            <text><text class="result-acquired-count">{{item.acquiredCount}}</text>票</text>
         </view>
     </view>
 </view>

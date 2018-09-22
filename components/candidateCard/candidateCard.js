@@ -12,6 +12,10 @@ Component({
             type: String,
             value: 180
         },
+        supportProportion: {
+            type: Number,
+            value: "1"
+        },
         status: {
             type: Boolean,
             value: false

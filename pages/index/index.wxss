@@ -1,16 +1,16 @@
 page {
     width: 100%;
+    background-color: rgb(250, 250, 210);
 }
 
 .container {
     width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     padding: 0 10rpx;
-    background-color: rgb(250, 250, 210);
+    
 }
 
 .candidate-list {
@@ -27,4 +27,5 @@ ec-canvas {
     width:750rpx;
     height: 800rpx;
     background-color: #fff;
+    background-color: rgb(250, 250, 210);
 }

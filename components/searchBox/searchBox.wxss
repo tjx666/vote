@@ -7,13 +7,16 @@
 
 .iconfont {
     font-family:"iconfont" !important;
-    font-size:16px;
     font-style:normal;
+    color: gray;
+    font-size: 1rem;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
   
-.icon-search:before { content: "\e600"; }
+.icon-search:before { 
+    content: "\e600";
+}
 
 .container {
     width: 700rpx;
@@ -33,12 +36,13 @@
 }
 
 .search-input {
+    width: 600rpx;
     height: 50rpx;
     margin-left: 5rpx;
 }
 
 .focused {
-    border: 2px solid rgb(212, 155, 69);
+    border: 2px solid rgb(228, 124, 55);
 }
 
 .placeholder {
@@ -55,8 +59,8 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    background-color: rgb(230, 228, 146);
-    border-radius: 5rpx;
+    background-color: rgb(230, 229, 173);
+    border-radius: 8rpx;
 }
 
 .search-result {
@@ -68,5 +72,16 @@
     border-top: 1px solid gray;
     line-height: 50rpx;
     color: #999999;
+    font-size: 0.9rem;
 }
 
+.result-name {
+    font-size: .9rem;
+    letter-spacing: .18rem;
+}
+
+.result-acquired-count {
+    font-size: 0.78rem;
+    font-style: italic;
+    margin-right: .2rem;
+}

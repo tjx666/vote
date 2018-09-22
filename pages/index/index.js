@@ -2,7 +2,7 @@
 //获取应用实例
 const app = getApp()
 
-import * as echarts from '../../components/ec-canvas/echarts';
+import * as echarts from '../../components/ec-canvas/echarts.js';
 
 let chart = null;
 
@@ -58,18 +58,21 @@ Page({
                 name: '张三',
                 photoSrc: '../../assert/image/avatar.jpg',
                 acquiredCount: 180,
+                supportProportion:39.1,
             },
             {
                 id: 2,
                 name: '李四',
                 photoSrc: '../../assert/image/avatar.jpg',
                 acquiredCount: 160,
+                supportProportion: 34.7,
             },
             {
                 id: 3,
                 name: '王二',
                 photoSrc: '../../assert/image/avatar.jpg',
                 acquiredCount: 120,
+                supportProportion: 26.0,
             }
         ],
         currentCandidateId: 1,
