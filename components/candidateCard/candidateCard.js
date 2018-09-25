@@ -1,5 +1,11 @@
+const app = getApp();
+
 Component({
     properties: {
+        id: {
+            type: String,
+            value: 'xxxxx'
+        },
         candidateName: {
             type: String,
             value: '候选人姓名',
@@ -22,10 +28,10 @@ Component({
         }
     },
     data: {
-        
+
     },
     methods: {
-        handleVote() {
+        handleVote(event) {
             if (this.data.status) {
                 wx.showToast({
                     title: '您已经投过该候选人',
@@ -34,21 +40,13 @@ Component({
                     duration: 2000,
                 })
             } else {
-                wx.showModal({
-                    title: '投票',
-                    content: '您确定投票吗,投票后将不可以修改',
-                    cancelText: '再考虑下',
-                    confirmText: '就是他了',
-                    success: (res) => {
-                        if (res.confirm) {
-                            this.setData({
-                                status: true
-                            })
-                        }
-                    },
-                })
-            }
-            
+                this.triggerEvent('vote', {
+                    id
+                }, {
+                    bubbles: false,
+                    composed: false
+                });
+            };
         }
     }
 })

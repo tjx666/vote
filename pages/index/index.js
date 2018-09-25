@@ -52,31 +52,32 @@ Page({
     data: {
         notification: '投票时间截止至10月一日,每个人只能投一票,投票后不可撤销',
         candidateList: [{
-                id: 1,
+                id: '1',
                 name: '张三',
                 photoSrc: '../../assert/image/avatar.jpg',
                 acquiredCount: 180,
                 supportProportion: 39.1,
             },
             {
-                id: 2,
+                id: '2',
                 name: '李四',
                 photoSrc: '../../assert/image/avatar.jpg',
                 acquiredCount: 160,
                 supportProportion: 34.7,
             },
             {
-                id: 3,
+                id: '3',
                 name: '王二',
                 photoSrc: '../../assert/image/avatar.jpg',
                 acquiredCount: 120,
                 supportProportion: 26.0,
             }
         ],
-        currentCandidateId: 1,
+        currentCandidateId: "1",
         ec: {
             onInit: initChart
-        }
+        },
+        votedCandidateIds: [],
     },
     handleSelectCandidate(event) {
         const selectCandidate = this.data.candidateList.find(candidate => candidate.id === event.detail.candidateId);
@@ -85,6 +86,62 @@ Page({
                 currentCandidateId: selectCandidate.id
             });
         }
+    },
+    handleVote(event) {
+        const candidateId = event.detail.id;
+        const vote = __ => new Promise((resolve, reject) => {
+            wx.request({
+                url: `${ app.globalData.serverDomain }/api/v1/users/${openId}`,
+                data: {
+                    id: this.data.currentCandidateId
+                },
+                header: {
+                    'content-type': 'application/json'
+                },
+                method: 'GET',
+                dataType: 'json',
+                responseType: 'text',
+                success: (res) => {
+                    resolve(res.data);
+                },
+                fail: () => {
+                    reject('Server error cause voting failed');
+                },
+                complete: () => {}
+            });
+        });
+
+        if (this.data.votedCandidateIds.length !== 0) {
+            wx.showModal({
+                title: '投票',
+                content: '您确定投票吗,投票后将不可以修改',
+                cancelText: '再考虑下',
+                confirmText: '就是他了',
+                success: (res) => {
+                    if (res.confirm) {
+                        vote().then(data => {
+                            this.setData({
+                                votedCandidateIds: [...this.votedCandidateIds, id]
+                            });
+                        })
+                    }
+                },
+            });
+        } else {
+            const votedCandidate = this.data.candidateList.find(candidate => candidate.id === this.data.votedCandidateIds[0]);
+            wx.showToast({
+                title: `您已经投过其它候选人: ${ votedCandidate.name }`,
+                mask: true,
+                icon: 'none',
+                duration: 2000,
+            });
+        }
+    },
+    handleSwiperChange(event) {
+        const itemId = event.detail.currentItemId;
+        this.setData({
+            currentCandidateId: itemId
+        });
     },
     onLoad: function () {
 

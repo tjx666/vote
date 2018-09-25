@@ -12,6 +12,7 @@
     </search-box>
     <swiper
         class="candidate-list"
+        bindchange="handleSwiperChange"
         indicator-dots="{{false}}"
         autoplay="{{false}}"
         vertical="{{false}}"
@@ -20,6 +21,8 @@
         >
         <swiper-item item-id="{{item.id}}" wx:for="{{candidateList}}" wx:key="id">
             <candidate-card
+                catchvote="{{handleVote}}"
+                id="{{item.id}}"
                 candidate-name="{{item.name}}"
                 candidate-photo="{{item.photoSrc}}"
                 acquired-count="{{item.acquiredCount}}"

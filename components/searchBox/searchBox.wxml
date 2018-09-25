@@ -7,15 +7,13 @@
             placeholder="输入候选人名字"
             placeholder-class="placeholder"
             maxlength="10"
-            focus="{{focus}}"
-            bindchange=""
-            bindinput=""
-            catchfocus="handleInputFocus"
-            bindblur="handleInputBlur"
+            bindchange="handleChange"
+            bindinput="handleInput"
+            catchfocus="handleFocus"
         >
         </input>
     </view>
-    <view class="search-result-panel" style="display: {{ focus ? 'flex' : 'none'}};">
+    <view class="search-result-panel" style="display: {{ showResultList ? 'flex' : 'none'}};">
         <view
             class="search-result"
             wx:for="{{searchResultList}}"
@@ -26,5 +24,6 @@
             <text class="result-name">{{item.name}}</text>
             <text><text class="result-acquired-count">{{item.acquiredCount}}</text>票</text>
         </view>
+        <view class="up-result" catchtap="pullResultList">^</view>
     </view>
 </view>

@@ -1,9 +1,11 @@
+const app = getApp();
+
 Component({
     properties: {
 
     },
     data: {
-        focus: false,
+        showResultList: false,
         searchResultList: [
             {
                 id: 1,
@@ -23,19 +25,48 @@ Component({
         ]
     },
     methods: {
-        handleInputFocus(event){
+        handleFocus(event){
             this.setData({
-                focus: true
-            });
-        },
-        handleInputBlur(event) {
-            this.setData({
-                focus: false
+                showResultList: true
             });
         },
         handleSelect(event) {
+            this.setData({
+                showResultList: false
+            });
             const candidateId = event.currentTarget.dataset.selectCandidateId;
             this.triggerEvent('selectcandidate', {candidateId}, { bubbles: false, composed: false })
+        },
+        handleInput(event) {
+        },
+        handleChange(event) {
+            const fuzzySearchCandidate = new Promise((resolve, reject) => {
+                wx.request({
+                    url: `${ app.globalData.serverDomain }/api/v1/candidates`,
+                    method: 'get',
+                    data: {
+                        fuzzyName: event.detail.value
+                    },
+                    success (res) {
+                        resolve(res.data);
+                    },
+                    fail() {
+                        reject('get candidates from server failed by fuzzyName');
+                    }
+                })
+            });
+
+            fuzzySearchCandidate
+                .then(candidates => {
+                    this.setData({
+                        searchResultList: candidates
+                    })
+                });
+        },
+        pullResultList() {
+            this.setData({
+                showResultList: false
+            });
         }
     }
 })

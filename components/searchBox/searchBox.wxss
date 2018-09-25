@@ -63,7 +63,7 @@
     border-radius: 8rpx;
 }
 
-.search-result {
+.search-result, .up-result {
     height: 60rpx;
     display: flex;
     flex-direction: row;
@@ -84,4 +84,8 @@
     font-size: 0.78rem;
     font-style: italic;
     margin-right: .2rem;
+}
+
+.up-result {
+    justify-content: center;
 }
