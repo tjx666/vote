@@ -2,7 +2,7 @@ const app = getApp();
 
 Component({
     properties: {
-        id: {
+        candidateId: {
             type: String,
             value: 'xxxxx'
         },
@@ -41,7 +41,7 @@ Component({
                 })
             } else {
                 this.triggerEvent('vote', {
-                    id
+                    id: this.data.candidateId
                 }, {
                     bubbles: false,
                     composed: false

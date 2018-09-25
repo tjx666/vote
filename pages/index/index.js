@@ -57,6 +57,7 @@ Page({
                 photoSrc: '../../assert/image/avatar.jpg',
                 acquiredCount: 180,
                 supportProportion: 39.1,
+                status: false,
             },
             {
                 id: '2',
@@ -64,6 +65,7 @@ Page({
                 photoSrc: '../../assert/image/avatar.jpg',
                 acquiredCount: 160,
                 supportProportion: 34.7,
+                status: false,
             },
             {
                 id: '3',
@@ -71,6 +73,7 @@ Page({
                 photoSrc: '../../assert/image/avatar.jpg',
                 acquiredCount: 120,
                 supportProportion: 26.0,
+                status: false,
             }
         ],
         currentCandidateId: "1",
@@ -89,16 +92,17 @@ Page({
     },
     handleVote(event) {
         const candidateId = event.detail.id;
+        const votedCandidate = this.data.candidateList.find(candidate => candidate.id === candidateId);
         const vote = __ => new Promise((resolve, reject) => {
             wx.request({
-                url: `${ app.globalData.serverDomain }/api/v1/users/${openId}`,
+                url: `${ app.globalData.serverDomain }/api/v1/users/${ app.globalData.userInfo.openId }`,
                 data: {
                     id: this.data.currentCandidateId
                 },
                 header: {
                     'content-type': 'application/json'
                 },
-                method: 'GET',
+                method: 'PUT',
                 dataType: 'json',
                 responseType: 'text',
                 success: (res) => {
@@ -106,12 +110,11 @@ Page({
                 },
                 fail: () => {
                     reject('Server error cause voting failed');
-                },
-                complete: () => {}
+                }
             });
         });
 
-        if (this.data.votedCandidateIds.length !== 0) {
+        if (this.data.votedCandidateIds.length === 0) {
             wx.showModal({
                 title: '投票',
                 content: '您确定投票吗,投票后将不可以修改',
@@ -120,8 +123,10 @@ Page({
                 success: (res) => {
                     if (res.confirm) {
                         vote().then(data => {
+                            votedCandidate.status = true;
                             this.setData({
-                                votedCandidateIds: [...this.votedCandidateIds, id]
+                                votedCandidateIds: [...this.data.votedCandidateIds, candidateId],
+                                candidateList: this.data.candidateList
                             });
                         })
                     }

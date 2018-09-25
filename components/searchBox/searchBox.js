@@ -40,12 +40,13 @@ Component({
         handleInput(event) {
         },
         handleChange(event) {
+            const fuzzyName = event.detail.value;
             const fuzzySearchCandidate = new Promise((resolve, reject) => {
                 wx.request({
                     url: `${ app.globalData.serverDomain }/api/v1/candidates`,
                     method: 'get',
                     data: {
-                        fuzzyName: event.detail.value
+                        fuzzyName
                     },
                     success (res) {
                         resolve(res.data);
