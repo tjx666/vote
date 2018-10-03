@@ -19,7 +19,7 @@
         current-item-id="{{currentCandidateId}}"
         duration="1000"
         >
-        <swiper-item item-id="{{item.id}}" wx:for="{{candidateList.slice(0, 8)}}" wx:key="id">
+        <swiper-item item-id="{{item.id}}" wx:for="{{candidateList}}" wx:key="id">
             <candidate-card
                 catchvote="handleVote"
                 candidate-id="{{item.id}}"

@@ -40,6 +40,8 @@ Component({
         handleInput(event) {
         },
         handleChange(event) {
+            // !: 没有服务器下面的处理不要打开
+            return;
             const fuzzyName = event.detail.value;
             const fuzzySearchCandidate = new Promise((resolve, reject) => {
                 wx.request({
